@@ -6,11 +6,10 @@ import * as vscode from 'vscode';
 export class VsLogger {
     channel: vscode.OutputChannel | undefined;
 
-    public initializeChannel(name: string) {
+    private initializeChannel(name: string) {
         if (this.channel === undefined) {
             this.channel = vscode.window.createOutputChannel(name, 'log');
         }
-        this.channel.show();
         this.logInfo(`Logger successfully initialized for ${name}`);
     }
     public logInfo(message: string): void {
