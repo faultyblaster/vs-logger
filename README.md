@@ -25,6 +25,17 @@ logger.logError('An error occurred');
 logger.logWarning('This is a warning');
 ```
 
+### Output
+
+The output will look like this (on a `vscode` output channel):
+
+``` log
+[3/12/2025, 9:21:55 AM] [INFO   ]: Logger successfully initialized for MyExtension
+[3/12/2025, 9:21:55 AM] [INFO   ]: Hello World
+[3/12/2025, 9:21:55 AM] [ERROR  ]: An error occurred
+[3/12/2025, 9:21:55 AM] [WARNING]: This is a warning
+```
+
 And that's it! The message will be logged to the output channel of your extension.
 
 ## Thanks

@@ -6,12 +6,6 @@ import * as vscode from 'vscode';
 export class VsLogger {
     channel: vscode.OutputChannel | undefined;
 
-    private initializeChannel(name: string) {
-        if (this.channel === undefined) {
-            this.channel = vscode.window.createOutputChannel(name, 'log');
-        }
-        this.logInfo(`Logger successfully initialized for ${name}`);
-    }
     public logInfo(message: string): void {
         let date = new Date(Date.now());
         this.channel?.appendLine(
@@ -30,7 +24,14 @@ export class VsLogger {
             `[${date.toLocaleString()}] [ERROR  ]: ${message}`
         );
     }
+    public showChannel(): void {
+        if (this.channel) {
+            this.channel.show();
+        }
+    }
+
     constructor(name: string) {
-        this.initializeChannel(name);
+        this.channel = vscode.window.createOutputChannel(name, 'log');
+        this.logInfo(`Logger successfully initialized for ${name}`);
     }
 }
